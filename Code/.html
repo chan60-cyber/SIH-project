@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech in JavaScript</title>
+   <style>
+    *{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-position:top;
+    background-image: url('https://mastera.academy/wp-content/uploads/2019/09/HERB_GIFS.gif');
+}
+
+.container{
+    background-color: #4FBDBA;
+    display: grid;
+    gap: 20px;
+    width: 500px;
+    max-width: calc(100vw - 40px);
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+#text{
+    display: block;
+    height: 400px;
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    border: none;
+    resize: none;
+    padding: 8px 10px;
+    outline: 2px solid rgba(120,120,120,0.623);
+}
+
+button{
+    padding: 10px;
+    background: #072227;
+    color: #fff;
+    border-radius: .5rem;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+   </style>
+   
+</head>
+<body>
+    <div class="container">
+        <label for="text" style="font-size: larger;color:red;">SUSTAINABLE PLEDGE</label>
+        <h3>This is pledge Generator which is like text to audio converter .Write your pledge lines to take Pledge Virtualy.</h3>
+        <textarea id="text"> </textarea>
+        <button id="speak">PLEDGE WITH ME</button>
+    </div>
+    <script>
+       const textEL = document.getElementById('text');
+const speakEL = document.getElementById('speak');
+
+speakEL.addEventListener('click', speakText);
+function speakText() {
+
+    // stop any speaking in progress
+    window.speechSynthesis.cancel();
+
+    const text = textEL.value;
+    const utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
+}
+    </script>
+    <!-- I AM ONLINE PLEDGE GENERATOR SO LETS TAKE PLEDGE WITH ME !!
+    As a Responsible citizen I Minakshi kumari Pathak of uttaranchal university .
+    FIRSTLY,I pledge to save and restore our beloved mother Earth, in the interest of humanity and help protect human lives.
+    SECONDLY,I shall try to stop anyone who acts against the Environment and thus damaging the tranquillity and balance of the mother earth in all possible manner.
+     AND I dedicate myself to ensure that the future generation receives a habitable  and sustainable planet.
+    
+    THANKS YOU -->
+    
+
+</body>
+</html>
